@@ -1,0 +1,27 @@
+[
+    {   
+        "nom": "Structure",
+        "sections": [
+            "Massive Open Online Course (MOOC)",
+            "Privée (établissement de formation, entreprise, etc.)",
+            "Publique  (université, école d'ingénieur, etc.)"
+        ]
+    },
+    {   
+        "nom": "Organisme",
+        "sections":[
+            "1",
+            "",
+            "",
+            ""
+        ]
+    },
+    {   
+        "nom": "Modalités d'accès",
+        "sections":[
+           "Présentiel",
+           "Présentiel et Distanciel",
+           "Distanciel"
+        ]
+    }
+]

@@ -1,30 +1,20 @@
 <template>
-  <Navbar/>
-  <div class="Container">
-    <div>
-    <HelloWorld msg="Welcome to Your Vue.js App" /></div>
-    <Map />
-  </div>
+  <Navbar />
+  <Main />
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue'
-import Map from './components/Map.vue'
+import Main from './components/Main.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Map,
+    Main,
   }
 }
 </script>
 
 <style>
-.Container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border: 3px solid black;
-}
 </style>
