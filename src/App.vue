@@ -1,5 +1,5 @@
 <template>
-  <div class="header">Hello</div>
+  <Navbar/>
   <div class="Container">
     <div>
     <HelloWorld msg="Welcome to Your Vue.js App" /></div>
@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue'
 import Map from './components/Map.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Navbar,
     Map,
   }
 }
