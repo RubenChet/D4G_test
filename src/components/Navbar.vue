@@ -46,9 +46,6 @@
       <a class="mx-2">LINK FOOOUR</a>
     </div>
   </nav>
-  <div v-for="(item, index) in you" :key="index">
-    {{item}}
-  </div>
 </template>
 <script>
 
