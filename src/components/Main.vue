@@ -1,5 +1,6 @@
 <template>
-    <div class="flex justify-around items-center border-solid mt-10">
+    <div>hello</div>
+    <!-- <div class="flex justify-around items-center border-solid mt-10">
         <div id="map" class="-z-50"></div>
         <div id="list" class="bg-emerald-800">
             <div id="card-container" class="bg-emerald-800" v-for="(item, index) in packed_list[chunk_num]"
@@ -35,13 +36,11 @@
                 </a>
             </div>
             <div class="flex justify-center items-center mt-2">
-                <!-- Previous Button -->
-                <a class="disable inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700" @click="chunk_num++">
+                <a class="disable inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700" @click="chunk_num--">
                     Previous
                 </a>
 
-                <!-- Next Button -->
-                <a class="inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700" @click="chunk_num--">
+                <a class="inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700" @click="chunk_num++">
                     Next
                 </a>
             </div>
@@ -122,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 <script>
 import JSONdata from '../data/AZjson.json';
