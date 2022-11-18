@@ -1,4 +1,4 @@
-<template lang="">
+<template >
     <div>
         <div id="map" class="-z-50"></div>
         
@@ -20,6 +20,9 @@ export default {
     },
 }
 </script>
-<style lang="">
-    
+<style>
+    #map {
+    height: 700px;
+    width: 700px;
+}
 </style>
