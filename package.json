@@ -10,8 +10,6 @@
     "element-plus": "^2.2.21",
     "flowbite": "^1.5.4",
     "lodash": "^4.17.21",
-    "ol": "^7.1.0",
-    "primeicons": "^6.0.1",
     "vue": "^3.2.13"
   },
   "devDependencies": {
