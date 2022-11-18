@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <Map />
+  <Main />
 </template>
 
 <script>

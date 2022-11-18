@@ -138,8 +138,9 @@ export default {
         return {
             raw_list: JSONdata,
             packed_list: [],
-            already_checked: [],
-            already_city: [],
+            // already_checked: [],
+            // already_city: [],
+            packed_num:0,
             active_school: ["hello"],
             active_school_table: [],
             chunk_num: 0,
@@ -157,7 +158,7 @@ export default {
         push_in_packed(val) {
             const same = this.raw_list.filter((e) => e["__7"] === val)
             this.packed_list.push(same)
-            this.already_checked.push(val)
+            // this.already_checked.push(val)
         },
         toggleModal() {
             this.modal.toggle();
@@ -186,31 +187,43 @@ export default {
         this.modal = new Modal(targetEl);
     },
     created() {
-        this.already_city = []
-        this.already_checked = []
         this.raw_list.shift();
+        this.push_in_packed(this.raw_list[0]["__7"])
+        let newidx = 0
+
         for (let index = 0; index < this.raw_list.length; index++) {
-            if (this.already_checked.includes(this.raw_list[index]["__7"])) {
-                //pass 
+            // if (this.already_checked.includes(this.raw_list[index]["__7"])) {
+            //     //pass 
+            // }
+            // else if (this.raw_list[index]["__7"] != "") {
+            //     this.push_in_packed(this.raw_list[index]["__7"])
+            // }
+            // else if (this.raw_list[index]["__7"] == "") {
+            //     if (this.already_city.includes(this.raw_list[index]["__9"])) {
+            //         //pass 
+            //     }
+            //     else {
+            //         let city_same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
+            //         city_same = city_same.filter((e) => e["__9"] === this.raw_list[index]["__9"])
+            //         this.packed_list.push(city_same)
+            //         this.already_city.push(this.raw_list[index]["__9"])
+            //     }
+            // }
+            console.log(this.raw_list[index]["__7"])
+            if (this.raw_list[index]["__7"] == this.packed_list[newidx][0]["__7"]) {
+                //pass
+                console.log('same')
             }
-            else if (this.raw_list[index]["__7"] != "") {
-                this.push_in_packed(this.raw_list[index]["__7"])
-            }
-            else if (this.raw_list[index]["__7"] == "") {
-                if (this.already_city.includes(this.raw_list[index]["__9"])) {
-                    //pass 
-                }
-                else {
-                    let city_same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
-                    city_same = city_same.filter((e) => e["__9"] === this.raw_list[index]["__9"])
-                    this.packed_list.push(city_same)
-                    this.already_city.push(this.raw_list[index]["__9"])
-                }
+            else
+            {   
+                const same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
+                this.packed_list.push(same)
+                newidx++
             }
         }
         let chunk = _.chunk(this.packed_list, 4);
         this.packed_list = chunk;
-        console.log(this.packed_list.length)
+        console.log(this.packed_list)
     },
 }
 </script>
