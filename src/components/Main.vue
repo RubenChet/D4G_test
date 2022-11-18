@@ -1,6 +1,6 @@
 <template>
     <div>hello</div>
-    <!-- <div class="flex justify-around items-center border-solid mt-10">
+    <div class="flex justify-around items-center border-solid mt-10">
         <div id="map" class="-z-50"></div>
         <div id="list" class="bg-emerald-800">
             <div id="card-container" class="bg-emerald-800" v-for="(item, index) in packed_list[chunk_num]"
@@ -121,104 +121,104 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </template>
 <script>
 import JSONdata from '../data/AZjson.json';
 import _ from 'lodash';
 
 export default {
-    // data() {
-    //     return {
-    //         raw_list: JSONdata,
-    //         packed_list: [],
-    //         // already_checked: [],
-    //         // already_city: [],
-    //         packed_num:0,
-    //         active_school: ["hello"],
-    //         active_school_table: [],
-    //         chunk_num: 0,
-    //         modal: ''
-    //     }
-    // },
-    // methods: {
-    //     showmap() {
-    //         var map = L.map('map').setView([51.505, -0.09], 13);
-    //         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //             maxZoom: 19,
-    //             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    //         }).addTo(map);
-    //     },
-    //     push_in_packed(val) {
-    //         const same = this.raw_list.filter((e) => e["__7"] === val)
-    //         this.packed_list.push(same)
-    //         // this.already_checked.push(val)
-    //     },
-    //     toggleModal() {
-    //         this.modal.toggle();
-    //     },
-    //     sendActive(val) {
-    //         this.active_school = val
-    //     },
-    //     checkSameCity(val) {
-    //         this.already_city = []
-    //         let the_city = ""
-    //         for (let index = 0; index < val.length; index++) {
-    //             if (this.already_city.includes(val[index]["__9"])) {
-    //             }
-    //             else {
-    //                 the_city += ' ' + val[index]["__9"]
-    //                 this.already_city.push(val[index]["__9"])
-    //             }
-    //         }
-    //         return the_city
+    data() {
+        return {
+            raw_list: JSONdata,
+            packed_list: [],
+            // already_checked: [],
+            // already_city: [],
+            packed_num:0,
+            active_school: ["hello"],
+            active_school_table: [],
+            chunk_num: 0,
+            modal: ''
+        }
+    },
+    methods: {
+        showmap() {
+            var map = L.map('map').setView([51.505, -0.09], 13);
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+        },
+        push_in_packed(val) {
+            const same = this.raw_list.filter((e) => e["__7"] === val)
+            this.packed_list.push(same)
+            // this.already_checked.push(val)
+        },
+        toggleModal() {
+            this.modal.toggle();
+        },
+        sendActive(val) {
+            this.active_school = val
+        },
+        checkSameCity(val) {
+            this.already_city = []
+            let the_city = ""
+            for (let index = 0; index < val.length; index++) {
+                if (this.already_city.includes(val[index]["__9"])) {
+                }
+                else {
+                    the_city += ' ' + val[index]["__9"]
+                    this.already_city.push(val[index]["__9"])
+                }
+            }
+            return the_city
 
-    //     },
-    // },
-    // mounted() {
-    //     this.showmap()
-    //     const targetEl = document.getElementById('defaultModal');
-    //     this.modal = new Modal(targetEl);
-    // },
-    // created() {
-    //     this.raw_list.shift();
-    //     this.push_in_packed(this.raw_list[0]["__7"])
-    //     let newidx = 0
+        },
+    },
+    mounted() {
+        this.showmap()
+        const targetEl = document.getElementById('defaultModal');
+        this.modal = new Modal(targetEl);
+    },
+    created() {
+        this.raw_list.shift();
+        this.push_in_packed(this.raw_list[0]["__7"])
+        let newidx = 0
 
-    //     for (let index = 0; index < this.raw_list.length; index++) {
-    //         if (this.already_checked.includes(this.raw_list[index]["__7"])) {
-    //             //pass 
-    //         }
-    //         else if (this.raw_list[index]["__7"] != "") {
-    //             this.push_in_packed(this.raw_list[index]["__7"])
-    //         }
-    //         else if (this.raw_list[index]["__7"] == "") {
-    //             if (this.already_city.includes(this.raw_list[index]["__9"])) {
-    //                 //pass 
-    //             }
-    //             else {
-    //                 let city_same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
-    //                 city_same = city_same.filter((e) => e["__9"] === this.raw_list[index]["__9"])
-    //                 this.packed_list.push(city_same)
-    //                 this.already_city.push(this.raw_list[index]["__9"])
-    //             }
-    //         }
-    //         console.log(this.raw_list[index]["__7"])
-    //         if (this.raw_list[index]["__7"] == this.packed_list[newidx][0]["__7"]) {
-    //             //pass
-    //             console.log('same')
-    //         }
-    //         else
-    //         {   
-    //             const same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
-    //             this.packed_list.push(same)
-    //             newidx++
-    //         }
-    //     }
-    //     let chunk = _.chunk(this.packed_list, 4);
-    //     this.packed_list = chunk;
-    //     console.log(this.packed_list)
-    // },
+        for (let index = 0; index < this.raw_list.length; index++) {
+            if (this.already_checked.includes(this.raw_list[index]["__7"])) {
+                //pass 
+            }
+            else if (this.raw_list[index]["__7"] != "") {
+                this.push_in_packed(this.raw_list[index]["__7"])
+            }
+            else if (this.raw_list[index]["__7"] == "") {
+                if (this.already_city.includes(this.raw_list[index]["__9"])) {
+                    //pass 
+                }
+                else {
+                    let city_same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
+                    city_same = city_same.filter((e) => e["__9"] === this.raw_list[index]["__9"])
+                    this.packed_list.push(city_same)
+                    this.already_city.push(this.raw_list[index]["__9"])
+                }
+            }
+            console.log(this.raw_list[index]["__7"])
+            if (this.raw_list[index]["__7"] == this.packed_list[newidx][0]["__7"]) {
+                //pass
+                console.log('same')
+            }
+            else
+            {   
+                const same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
+                this.packed_list.push(same)
+                newidx++
+            }
+        }
+        let chunk = _.chunk(this.packed_list, 4);
+        this.packed_list = chunk;
+        console.log(this.packed_list)
+    },
 }
 </script>
 <style>
