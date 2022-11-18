@@ -2,7 +2,7 @@
     <div class="flex justify-around items-center border-solid mt-10">
         <div id="map" class="-z-50"></div>
         <div id="list" class="bg-emerald-800">
-            <div id="card-container" class="bg-emerald-800" v-for="(item, index) in packed_list[chunk_num]"
+            <!-- <div id="card-container" class="bg-emerald-800" v-for="(item, index) in packed_list[chunk_num]"
                 :key="index">
                 <a
                     class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 mt-5">
@@ -22,7 +22,6 @@
                         </div>
                     </div>
                     <div id="card_formations" class="flex justify-around text-center overflow-auto">
-                        <!-- Modal toggle -->
                         <button
                             class="py-2 px-3 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800"
                             type="button" @click="toggleModal(), sendActive(item)">
@@ -34,7 +33,7 @@
                         <p>{{ item[0][""] }}</p>
                     </div>
                 </a>
-            </div>
+            </div> -->
             <div class="flex justify-center items-center mt-2">
                 <!-- Previous Button -->
                 <a class="disable inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700" @click="chunk_num++">
