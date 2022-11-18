@@ -1,6 +1,6 @@
 <template >
     <div>
-        <div id="map" class="-z-50"></div>
+        <div id="map" class="-z-50">hello</div>
         
     </div>
 </template>
