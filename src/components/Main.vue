@@ -2,7 +2,7 @@
     <div class="flex justify-around items-center border-solid mt-10">
         <div id="map" class="-z-50"></div>
         <div id="list" class="bg-emerald-800">
-            <!-- <div id="card-container" class="bg-emerald-800" v-for="(item, index) in packed_list[chunk_num]"
+            <div id="card-container" class="bg-emerald-800" v-for="(item, index) in packed_list[chunk_num]"
                 :key="index">
                 <a
                     class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 mt-5">
@@ -33,7 +33,7 @@
                         <p>{{ item[0][""] }}</p>
                     </div>
                 </a>
-            </div> -->
+            </div>
             <div class="flex justify-center items-center mt-2">
                 <!-- Previous Button -->
                 <a class="disable inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700" @click="chunk_num++">
@@ -46,7 +46,7 @@
                 </a>
             </div>
         </div>
-        <!-- <div id="defaultModal" aria-hidden="true"
+        <div id="defaultModal" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
             <div id="modal_size" class="relative p-4 h-full md:h-auto">
                 <div class="relative bg-white rounded-lg shadow ">
@@ -121,7 +121,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 <script>
@@ -181,45 +181,45 @@ export default {
         const targetEl = document.getElementById('defaultModal');
         this.modal = new Modal(targetEl);
     },
-    // created() {
-    //     this.raw_list.shift();
-    //     this.push_in_packed(this.raw_list[0]["__7"])
-    //     let newidx = 0
+    created() {
+        this.raw_list.shift();
+        this.push_in_packed(this.raw_list[0]["__7"])
+        let newidx = 0
 
-    //     for (let index = 0; index < this.raw_list.length; index++) {
-    //         if (this.already_checked.includes(this.raw_list[index]["__7"])) {
-    //             //pass 
-    //         }
-    //         else if (this.raw_list[index]["__7"] != "") {
-    //             this.push_in_packed(this.raw_list[index]["__7"])
-    //         }
-    //         else if (this.raw_list[index]["__7"] == "") {
-    //             if (this.already_city.includes(this.raw_list[index]["__9"])) {
-    //                 //pass 
-    //             }
-    //             else {
-    //                 let city_same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
-    //                 city_same = city_same.filter((e) => e["__9"] === this.raw_list[index]["__9"])
-    //                 this.packed_list.push(city_same)
-    //                 this.already_city.push(this.raw_list[index]["__9"])
-    //             }
-    //         }
-    //         console.log(this.raw_list[index]["__7"])
-    //         if (this.raw_list[index]["__7"] == this.packed_list[newidx][0]["__7"]) {
-    //             //pass
-    //             console.log('same')
-    //         }
-    //         else
-    //         {   
-    //             const same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
-    //             this.packed_list.push(same)
-    //             newidx++
-    //         }
-    //     }
-    //     let chunk = _.chunk(this.packed_list, 4);
-    //     this.packed_list = chunk;
-    //     console.log(this.packed_list)
-    // },
+        for (let index = 0; index < this.raw_list.length; index++) {
+            if (this.already_checked.includes(this.raw_list[index]["__7"])) {
+                //pass 
+            }
+            else if (this.raw_list[index]["__7"] != "") {
+                this.push_in_packed(this.raw_list[index]["__7"])
+            }
+            else if (this.raw_list[index]["__7"] == "") {
+                if (this.already_city.includes(this.raw_list[index]["__9"])) {
+                    //pass 
+                }
+                else {
+                    let city_same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
+                    city_same = city_same.filter((e) => e["__9"] === this.raw_list[index]["__9"])
+                    this.packed_list.push(city_same)
+                    this.already_city.push(this.raw_list[index]["__9"])
+                }
+            }
+            console.log(this.raw_list[index]["__7"])
+            if (this.raw_list[index]["__7"] == this.packed_list[newidx][0]["__7"]) {
+                //pass
+                console.log('same')
+            }
+            else
+            {   
+                const same = this.raw_list.filter((e) => e["__7"] === this.raw_list[index]["__7"])
+                this.packed_list.push(same)
+                newidx++
+            }
+        }
+        let chunk = _.chunk(this.packed_list, 4);
+        this.packed_list = chunk;
+        console.log(this.packed_list)
+    },
 }
 </script>
 <style>
